@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ALEE // Cyber Ops Toolkit</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        ALEE<span>_</span>
+    </div>
+
+    <nav id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#cyber">Cyber</a>
+        <a href="#gaming">Gaming</a>
+        <a href="#tools">Tools</a>
+    </nav>
+
+    <div class="header-actions">
+        <button id="themeBtn" class="icon-btn" title="Toggle theme">☾</button>
+        <button id="settingsBtn" class="icon-btn" title="Settings">⚙</button>
+        <button id="menuBtn" class="icon-btn mobile-only">☰</button>
+    </div>
+
+</header>
+
+
+<main>
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="status-pill">
+            <span class="pulse"></span>
+            ALEE v6 // CYBER OPS ONLINE
+        </div>
+
+        <h1>ALEE <span>TOOLKIT</span></h1>
+
+        <p>
+            A cinematic cybersecurity and gaming utility dashboard
+            built for learning, experimentation and everyday tools.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn"
+                onclick="scrollToSection('dashboard')">
+                OPEN COMMAND CENTER
+            </button>
+
+            <button class="secondary-btn"
+                onclick="scrollToSection('cyber')">
+                ENTER CYBER LAB
+            </button>
+
+        </div>
+
+
+        <div class="terminal">
+
+            <div class="terminal-top">
+                <span></span>
+                <span></span>
+                <span></span>
+                <label>ALEE://terminal</label>
+            </div>
+
+            <div id="terminalOutput" class="terminal-output">
+
+                <p>> Initializing ALEE...</p>
+                <p>> Loading cyber modules...</p>
+                <p>> Loading gaming modules...</p>
+                <p>> Loading Cyber Lab...</p>
+                <p>> Security environment: READY</p>
+                <p class="terminal-green">> ACCESS GRANTED</p>
+
+            </div>
+
+            <div class="terminal-input-row">
+
+                <span>root@alee:~$</span>
+
+                <input
+                    id="terminalInput"
+                    autocomplete="off"
+                    placeholder="type help"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="dashboard" class="section">
+
+    <div class="section-heading">
+        <span>01 // COMMAND CENTER</span>
+        <h2>System Command Center</h2>
+    </div>
+
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <span>TOOLS</span>
+            <strong id="toolCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>USED</span>
+            <strong id="usedCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>FAVORITES</span>
+            <strong id="favoriteCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>STATUS</span>
+            <strong class="green">ONLINE</strong>
+        </div>
+
+    </div>
+
+
+    <div class="command-grid">
+
+        <div class="ops-panel">
+
+            <div class="panel-title">
+                <span>LIVE SYSTEM STATUS</span>
+                <span class="live-dot">● LIVE</span>
+            </div>
+
+            <div class="status-list">
+
+                <div>
+                    <span>Browser</span>
+                    <strong id="browserStatus">Detecting...</strong>
+                </div>
+
+                <div>
+                    <span>Platform</span>
+                    <strong id="platformStatus">Detecting...</strong>
+                </div>
+
+                <div>
+                    <span>CPU Threads</span>
+                    <strong id="cpuStatus">Detecting...</strong>
+                </div>
+
+                <div>
+                    <span>Connection</span>
+                    <strong id="connectionStatus">Checking...</strong>
+                </div>
+
+                <div>
+                    <span>Local Time</span>
+                    <strong id="liveClock">--:--:--</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="ops-panel">
+
+            <div class="panel-title">
+                <span>SECURITY MONITOR</span>
+                <span class="green">ACTIVE</span>
+            </div>
+
+            <div class="threat-display">
+
+                <div class="shield">🛡️</div>
+
+                <div>
+                    <strong>LOCAL ENVIRONMENT</strong>
+                    <p>No active security alerts detected.</p>
+                </div>
+
+            </div>
+
+            <div class="progress-bar">
+                <span></span>
+            </div>
+
+            <small>
+                Monitoring browser-side environment
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="search-box">
+        <span>⌕</span>
+        <input
+            id="toolSearch"
+            placeholder="Search ALEE tools...  Ctrl + K"
+        >
+    </div>
+
+
+    <div class="quick-actions">
+
+        <button onclick="openTool('reconTool')">
+            🛰 Recon
+        </button>
+
+        <button onclick="openTool('cyberLabTool')">
+            🧪 Cyber Lab
+        </button>
+
+        <button onclick="openTool('packetTool')">
+            📡 Packet Lab
+        </button>
+
+        <button onclick="openTool('webIntelTool')">
+            🌐 Web Intel
+        </button>
+
+        <button onclick="openTool('activityTool')">
+            📜 Activity
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="cyber" class="section">
+
+    <div class="section-heading">
+
+        <span>02 // CYBER OPS</span>
+
+        <h2>Cyber Laboratory</h2>
+
+        <p>
+            Educational and defensive browser-based tools.
+        </p>
+
+    </div>
+
+
+    <div class="tool-grid">
+
+        <article class="tool-card" data-tool="Password Generator">
+
+            <button class="favorite" data-tool="Password Generator">☆</button>
+
+            <div class="tool-icon">🔐</div>
+
+            <h3>Password Generator</h3>
+
+            <p>
+                Create strong random passwords locally.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('passwordTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Password Strength">
+
+            <button class="favorite" data-tool="Password Strength">☆</button>
+
+            <div class="tool-icon">🛡️</div>
+
+            <h3>Password Strength</h3>
+
+            <p>
+                Check password characteristics locally.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('strengthTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Hash Lab">
+
+            <button class="favorite" data-tool="Hash Lab">☆</button>
+
+            <div class="tool-icon">#️⃣</div>
+
+            <h3>Hash Lab</h3>
+
+            <p>
+                Generate SHA-256 hashes from supplied text.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('hashTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Base64 Lab">
+
+            <button class="favorite" data-tool="Base64 Lab">☆</button>
+
+            <div class="tool-icon">🔤</div>
+
+            <h3>Base64 Lab</h3>
+
+            <p>
+                Encode and decode Base64 data.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('base64Tool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="JWT Decoder">
+
+            <button class="favorite" data-tool="JWT Decoder">☆</button>
+
+            <div class="tool-icon">🪪</div>
+
+            <h3>JWT Decoder</h3>
+
+            <p>
+                Decode JWT header and payload locally.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('jwtTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Regex Tester">
+
+            <button class="favorite" data-tool="Regex Tester">☆</button>
+
+            <div class="tool-icon">🧪</div>
+
+            <h3>Regex Tester</h3>
+
+            <p>
+                Test regular expressions against your own text.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('regexTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="URL Encoder">
+
+            <button class="favorite" data-tool="URL Encoder">☆</button>
+
+            <div class="tool-icon">🔗</div>
+
+            <h3>URL Encoder</h3>
+
+            <p>
+                Encode and decode URLs locally.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('urlTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Recon Engine">
+
+            <button class="favorite" data-tool="Recon Engine">☆</button>
+
+            <div class="tool-icon">🛰️</div>
+
+            <h3>Recon Engine</h3>
+
+            <p>
+                Inspect your own browser environment.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('reconTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Packet Visualizer">
+
+            <button class="favorite" data-tool="Packet Visualizer">☆</button>
+
+            <div class="tool-icon">📡</div>
+
+            <h3>Packet Visualizer</h3>
+
+            <p>
+                Visualize simulated network traffic.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('packetTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Web Intel">
+
+            <button class="favorite" data-tool="Web Intel">☆</button>
+
+            <div class="tool-icon">🌐</div>
+
+            <h3>Web Intel</h3>
+
+            <p>
+                Inspect basic information from a URL you provide.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('webIntelTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <!-- NEW v6 -->
+
+        <article class="tool-card" data-tool="Cyber Lab">
+
+            <button class="favorite" data-tool="Cyber Lab">☆</button>
+
+            <div class="tool-icon">🧪</div>
+
+            <h3>Cyber Lab</h3>
+
+            <p>
+                Run safe simulated security challenges.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('cyberLabTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="JSON Formatter">
+
+            <button class="favorite" data-tool="JSON Formatter">☆</button>
+
+            <div class="tool-icon">📦</div>
+
+            <h3>JSON Formatter</h3>
+
+            <p>
+                Validate and format JSON locally.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('jsonTool')">
+                Launch
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section id="gaming" class="section">
+
+    <div class="section-heading">
+
+        <span>03 // GAMING OPS</span>
+
+        <h2>Gaming Center</h2>
+
+    </div>
+
+
+    <div class="tool-grid">
+
+        <article class="tool-card" data-tool="Sensitivity Converter">
+
+            <button class="favorite" data-tool="Sensitivity Converter">☆</button>
+
+            <div class="tool-icon">🎯</div>
+
+            <h3>Sensitivity Converter</h3>
+
+            <p>
+                Convert sensitivity values between games.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('sensitivityTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="eDPI Calculator">
+
+            <button class="favorite" data-tool="eDPI Calculator">☆</button>
+
+            <div class="tool-icon">🖱️</div>
+
+            <h3>eDPI Calculator</h3>
+
+            <p>
+                Calculate effective DPI for your setup.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('edpiTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="FPS Calculator">
+
+            <button class="favorite" data-tool="FPS Calculator">☆</button>
+
+            <div class="tool-icon">🖥️</div>
+
+            <h3>FPS / Hz Calculator</h3>
+
+            <p>
+                Compare frame rates and display refresh rates.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('fpsTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Gaming Timer">
+
+            <button class="favorite" data-tool="Gaming Timer">☆</button>
+
+            <div class="tool-icon">⏱️</div>
+
+            <h3>Gaming Timer</h3>
+
+            <p>
+                Set a custom gaming session timer.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('timerTool')">
+                Launch
+            </button>
+
+        </article>
+
+
+        <article class="tool-card" data-tool="Stopwatch">
+
+            <button class="favorite" data-tool="Stopwatch">☆</button>
+
+            <div class="tool-icon">⏱️</div>
+
+            <h3>Stopwatch</h3>
+
+            <p>
+                Track gaming or practice sessions.
+            </p>
+
+            <button class="tool-btn"
+                onclick="openTool('stopwatchTool')">
+                Launch
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section id="tools" class="section">
+
+    <div class="section-heading">
+
+        <span>04 // UTILITIES</span>
+
+        <h2>Utility Deck</h2>
+
+    </div>
+
+
+    <div class="tool-grid">
+
+        <article class="tool-card" data-tool="Calculator">
+            <button class="favorite" data-tool="Calculator">☆</button>
+            <div class="tool-icon">🧮</div>
+            <h3>Calculator</h3>
+            <p>Quick mathematical calculations.</p>
+            <button class="tool-btn"
+                onclick="openTool('calculatorTool')">
+                Launch
+            </button>
+        </article>
+
+
+        <article class="tool-card" data-tool="Quick Notes">
+            <button class="favorite" data-tool="Quick Notes">☆</button>
+            <div class="tool-icon">📝</div>
+            <h3>Quick Notes</h3>
+            <p>Save notes directly in your browser.</p>
+            <button class="tool-btn"
+                onclick="openTool('notesTool')">
+                Launch
+            </button>
+        </article>
+
+
+        <article class="tool-card" data-tool="Unit Converter">
+            <button class="favorite" data-tool="Unit Converter">☆</button>
+            <div class="tool-icon">📏</div>
+            <h3>Unit Converter</h3>
+            <p>Convert common units quickly.</p>
+            <button class="tool-btn"
+                onclick="openTool('unitTool')">
+                Launch
+            </button>
+        </article>
+
+
+        <article class="tool-card" data-tool="Color Picker">
+            <button class="favorite" data-tool="Color Picker">☆</button>
+            <div class="tool-icon">🎨</div>
+            <h3>Color Picker</h3>
+            <p>Pick colors and copy their values.</p>
+            <button class="tool-btn"
+                onclick="openTool('colorTool')">
+                Launch
+            </button>
+        </article>
+
+
+        <article class="tool-card" data-tool="Activity History">
+            <button class="favorite" data-tool="Activity History">☆</button>
+            <div class="tool-icon">📜</div>
+            <h3>Activity History</h3>
+            <p>See recently used ALEE tools.</p>
+            <button class="tool-btn"
+                onclick="openTool('activityTool')">
+                Launch
+            </button>
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<div id="modal" class="modal">
+
+    <div class="modal-box">
+
+        <button id="closeModal" class="close-btn">
+            ×
+        </button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<footer>
+
+    <strong>ALEE<span>_</span></strong>
+
+    <p>
+        Cybersecurity learning • Gaming utilities • Browser tools
+    </p>
+
+    <small>
+        v6.0 // LOCAL-FIRST TOOLKIT
+    </small>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
